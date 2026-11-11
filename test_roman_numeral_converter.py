@@ -29,5 +29,19 @@ class RomanTests(unittest.TestCase):
             self.assertEqual(from_roman(to_roman(number)), number)
 
 
+class AddRomanTests(unittest.TestCase):
+    def test_add_roman(self):
+        from roman import add_roman
+
+        self.assertEqual(add_roman("X", "V"), "XV")
+        self.assertEqual(add_roman("MCMXCIV", "VI"), "MM")
+
+    def test_add_roman_rejects_large_sum(self):
+        from roman import add_roman
+
+        with self.assertRaises(ValueError):
+            add_roman("MMM", "M")
+
+
 if __name__ == "__main__":
     unittest.main()
