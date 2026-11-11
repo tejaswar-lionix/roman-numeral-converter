@@ -41,3 +41,11 @@ def from_roman(text):
     if index != len(cleaned) or to_roman(total) != cleaned:
         raise ValueError(f"invalid roman numeral: {text}")
     return total
+
+
+def add_roman(left, right):
+    """Add two Roman numerals and return the Roman numeral sum."""
+    total = from_roman(left) + from_roman(right)
+    if total > 3999:
+        raise ValueError("sum exceeds 3999")
+    return to_roman(total)
