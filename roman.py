@@ -71,3 +71,14 @@ def sum_roman(values):
     if total > 3999:
         raise ValueError("sum exceeds 3999")
     return to_roman(total)
+
+
+def compare_roman(left, right):
+    """Compare two Roman numerals by value, returning -1, 0, or 1."""
+    left_value = from_roman(left)
+    right_value = from_roman(right)
+    if left_value < right_value:
+        return -1
+    if left_value > right_value:
+        return 1
+    return 0

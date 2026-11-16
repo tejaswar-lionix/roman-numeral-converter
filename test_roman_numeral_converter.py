@@ -89,5 +89,30 @@ class SumRomanTests(unittest.TestCase):
             sum_roman(["X", "ABC"])
 
 
+class CompareRomanTests(unittest.TestCase):
+    def test_less_than(self):
+        from roman import compare_roman
+
+        self.assertEqual(compare_roman("IV", "V"), -1)
+
+    def test_equal(self):
+        from roman import compare_roman
+
+        self.assertEqual(compare_roman("X", "x"), 0)
+
+    def test_greater_than(self):
+        from roman import compare_roman
+
+        self.assertEqual(compare_roman("MCMXCIV", "VI"), 1)
+
+    def test_invalid_numerals_propagate(self):
+        from roman import compare_roman
+
+        with self.assertRaises(ValueError):
+            compare_roman("ABC", "I")
+        with self.assertRaises(ValueError):
+            compare_roman("I", "ABC")
+
+
 if __name__ == "__main__":
     unittest.main()
