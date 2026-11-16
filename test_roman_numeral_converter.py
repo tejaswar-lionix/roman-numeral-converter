@@ -43,5 +43,25 @@ class AddRomanTests(unittest.TestCase):
             add_roman("MMM", "M")
 
 
+class SubtractRomanTests(unittest.TestCase):
+    def test_subtract_roman(self):
+        from roman import subtract_roman
+
+        self.assertEqual(subtract_roman("X", "V"), "V")
+        self.assertEqual(subtract_roman("MCMXCIV", "VI"), "MCMLXXXVIII")
+
+    def test_equal_numerals_raise(self):
+        from roman import subtract_roman
+
+        with self.assertRaises(ValueError):
+            subtract_roman("X", "X")
+
+    def test_larger_right_raises(self):
+        from roman import subtract_roman
+
+        with self.assertRaises(ValueError):
+            subtract_roman("V", "X")
+
+
 if __name__ == "__main__":
     unittest.main()

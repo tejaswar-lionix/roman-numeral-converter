@@ -6,6 +6,7 @@ Convert between integers and Roman numerals.
 
 ```bash
 python3 -c "from roman import *; print(to_roman(1994)); print(from_roman('MCMXCIV'))"
+python3 -c "from roman import subtract_roman; print(subtract_roman('MCMXCIV', 'VI'))"
 ```
 
 ## Features
@@ -13,6 +14,7 @@ python3 -c "from roman import *; print(to_roman(1994)); print(from_roman('MCMXCI
 - Integer to Roman conversion for 1 to 3999
 - Strict Roman parsing with validation
 - Addition with add_roman(left, right)
+- Subtraction with subtract_roman(left, right)
 
 ## Tests
 
