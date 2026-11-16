@@ -57,3 +57,17 @@ def subtract_roman(left, right):
     if difference <= 0:
         raise ValueError("difference must be positive")
     return to_roman(difference)
+
+
+def sum_roman(values):
+    """Sum an iterable of Roman numerals and return the Roman numeral total."""
+    total = 0
+    seen = False
+    for value in values:
+        seen = True
+        total += from_roman(value)
+    if not seen:
+        raise ValueError("values must not be empty")
+    if total > 3999:
+        raise ValueError("sum exceeds 3999")
+    return to_roman(total)

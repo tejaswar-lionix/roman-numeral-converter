@@ -63,5 +63,31 @@ class SubtractRomanTests(unittest.TestCase):
             subtract_roman("V", "X")
 
 
+class SumRomanTests(unittest.TestCase):
+    def test_sum_roman(self):
+        from roman import sum_roman
+
+        self.assertEqual(sum_roman(["X", "V"]), "XV")
+        self.assertEqual(sum_roman(["MCMXCIV", "VI"]), "MM")
+
+    def test_sum_roman_rejects_large_total(self):
+        from roman import sum_roman
+
+        with self.assertRaises(ValueError):
+            sum_roman(["MMM", "M"])
+
+    def test_sum_roman_rejects_empty(self):
+        from roman import sum_roman
+
+        with self.assertRaises(ValueError):
+            sum_roman([])
+
+    def test_sum_roman_propagates_invalid_numeral(self):
+        from roman import sum_roman
+
+        with self.assertRaises(ValueError):
+            sum_roman(["X", "ABC"])
+
+
 if __name__ == "__main__":
     unittest.main()
