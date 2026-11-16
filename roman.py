@@ -49,3 +49,11 @@ def add_roman(left, right):
     if total > 3999:
         raise ValueError("sum exceeds 3999")
     return to_roman(total)
+
+
+def subtract_roman(left, right):
+    """Subtract right from left and return the Roman numeral difference."""
+    difference = from_roman(left) - from_roman(right)
+    if difference <= 0:
+        raise ValueError("difference must be positive")
+    return to_roman(difference)
