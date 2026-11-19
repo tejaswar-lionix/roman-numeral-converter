@@ -129,5 +129,18 @@ class CompareRomanTests(unittest.TestCase):
             compare_roman("I", "ABC")
 
 
+class RomanRangeTests(unittest.TestCase):
+    def test_builds_inclusive_range(self):
+        from roman import roman_range
+
+        self.assertEqual(roman_range(1, 4), ["I", "II", "III", "IV"])
+
+    def test_rejects_reversed_range(self):
+        from roman import roman_range
+
+        with self.assertRaises(ValueError):
+            roman_range(5, 1)
+
+
 if __name__ == "__main__":
     unittest.main()
