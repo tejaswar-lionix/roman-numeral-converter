@@ -28,6 +28,10 @@ python3 -c "from roman import is_valid_roman; print(is_valid_roman('MCMXCIV'))"
 python3 -m unittest -q
 ```
 
+## Additional API
+
+- `roman_range(start, end)` returns Roman numerals for an inclusive integer range.
+
 ## License
 
 MIT

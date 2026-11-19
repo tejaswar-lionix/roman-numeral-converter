@@ -91,3 +91,10 @@ def compare_roman(left, right):
     if left_value > right_value:
         return 1
     return 0
+
+
+def roman_range(start, end):
+    """Return Roman numerals for every integer from start to end inclusive."""
+    if start > end:
+        raise ValueError("start must not exceed end")
+    return [to_roman(number) for number in range(start, end + 1)]
