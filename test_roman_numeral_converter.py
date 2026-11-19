@@ -1,6 +1,6 @@
 import unittest
 
-from roman import from_roman, to_roman
+from roman import from_roman, is_valid_roman, to_roman
 
 
 class RomanTests(unittest.TestCase):
@@ -27,6 +27,21 @@ class RomanTests(unittest.TestCase):
     def test_roundtrip(self):
         for number in (1, 9, 42, 1987, 3999):
             self.assertEqual(from_roman(to_roman(number)), number)
+
+
+class IsValidRomanTests(unittest.TestCase):
+    def test_valid_uppercase(self):
+        self.assertTrue(is_valid_roman("MCMXCIV"))
+
+    def test_valid_lowercase(self):
+        self.assertTrue(is_valid_roman("mcmxciv"))
+
+    def test_invalid_returns_false(self):
+        for text in ("IIII", "ABC", "VX"):
+            self.assertFalse(is_valid_roman(text))
+
+    def test_empty_returns_false(self):
+        self.assertFalse(is_valid_roman(""))
 
 
 class AddRomanTests(unittest.TestCase):

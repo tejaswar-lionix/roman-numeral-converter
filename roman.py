@@ -43,6 +43,15 @@ def from_roman(text):
     return total
 
 
+def is_valid_roman(text):
+    """Return True when text is a valid Roman numeral, False otherwise."""
+    try:
+        from_roman(text)
+    except ValueError:
+        return False
+    return True
+
+
 def add_roman(left, right):
     """Add two Roman numerals and return the Roman numeral sum."""
     total = from_roman(left) + from_roman(right)
